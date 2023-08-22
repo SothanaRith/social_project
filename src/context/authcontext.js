@@ -8,6 +8,7 @@ export const AuthContextProvider = ({ children }) => {
     );
 
     const login = () => {
+        console.log()
         //to do
         setCurrentUser({
             id: 1, name: "narith", profilePic: "https://i.pinimg.com/564x/7e/a3/61/7ea361d0e5ebeef1a12899d1f5f4b5e1.jpg"
