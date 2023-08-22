@@ -3,6 +3,7 @@ import Stories from "../../coponents/stories/Stories";
 import "./home.scss"
 
 const Home = ()=>{
+    console.log()
     return (
         <div className="Home">
             <Stories/>
