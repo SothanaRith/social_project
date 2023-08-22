@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/SothanaRith/social_project.git/static/css/main.9c196286.css",
+    "main.js": "/SothanaRith/social_project.git/static/js/main.645ae965.js",
+    "static/js/787.71df535f.chunk.js": "/SothanaRith/social_project.git/static/js/787.71df535f.chunk.js",
+    "static/media/message.png": "/SothanaRith/social_project.git/static/media/message.18d35687edba8791dac2.png",
+    "static/media/friends.png": "/SothanaRith/social_project.git/static/media/friends.d565f32eca063d86ff31.png",
+    "static/media/fund.png": "/SothanaRith/social_project.git/static/media/fund.fee45dea2adfeb75fcc4.png",
+    "static/media/event.png": "/SothanaRith/social_project.git/static/media/event.6c0a32608dfc709eaacc.png",
+    "static/media/market.png": "/SothanaRith/social_project.git/static/media/market.b5c773b2689235007f29.png",
+    "static/media/gaming.png": "/SothanaRith/social_project.git/static/media/gaming.2279489d14ca565fbe83.png",
+    "static/media/gallery.png": "/SothanaRith/social_project.git/static/media/gallery.7cab3f2453d183dff56f.png",
+    "static/media/tutorial.png": "/SothanaRith/social_project.git/static/media/tutorial.74c2bbabeb0c7963ff32.png",
+    "static/media/memories.png": "/SothanaRith/social_project.git/static/media/memories.5f7ea8b4a06879789206.png",
+    "static/media/group.png": "/SothanaRith/social_project.git/static/media/group.c1e6261f1cac09957009.png",
+    "static/media/courses.png": "/SothanaRith/social_project.git/static/media/courses.9f08f315c327ecc01b09.png",
+    "static/media/logo.svg": "/SothanaRith/social_project.git/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/SothanaRith/social_project.git/index.html",
+    "main.9c196286.css.map": "/SothanaRith/social_project.git/static/css/main.9c196286.css.map",
+    "main.645ae965.js.map": "/SothanaRith/social_project.git/static/js/main.645ae965.js.map",
+    "787.71df535f.chunk.js.map": "/SothanaRith/social_project.git/static/js/787.71df535f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9c196286.css",
+    "static/js/main.645ae965.js"
+  ]
+}
