@@ -1,0 +1,146 @@
+@import "../../style.scss";
+
+.register {
+    height: 100vh;
+    background-color: #f333c325;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .card {
+        width: 80%;
+        display: flex;
+        flex-direction: row-reverse;
+        border-radius: 10px;
+        min-height: 700px;
+        overflow: hidden;
+
+        
+        @include tablet{
+            width: 80%;
+            flex-direction: column;
+        }@include mobile{
+            width: 90%;
+            flex-direction: column;
+        }
+        
+
+        .left {
+            text-align: left;
+            flex: 1;
+            background:linear-gradient(rgba(45, 98, 197, 0.349),rgba(0, 0, 0, 0.692)), url("https://i.pinimg.com/564x/9d/47/7a/9d477ac5a57cda079825c7dfbced748d.jpg") center;
+            background-size: cover;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            color: white;
+            margin-top: -6%;
+            
+            @include tablet{
+                gap: 10px;
+                max-height: 500px;
+                padding: 20px;
+            }@include mobile{
+                gap: 10px;
+                max-height: 300px;
+                padding: 10px;
+            }
+    
+
+            h1 {
+                font-size: 80px;
+                line-height: 100px;
+
+                
+                @include tablet{
+                    line-height: 50px;
+                    font-size: 40px;
+                }
+                @include mobile{
+                    line-height: 40px;
+                    font-size: 40px;
+                }
+        
+            }
+
+            p {}
+
+            span {
+                font-size: 14px;
+            }
+
+            button {
+                width: 50%;
+                padding: 10px;
+                border: none;
+                background-color: white;
+                color: rgba(124, 25, 133, 0.822);
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+        }
+
+        .right {
+            background-color:white;
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            justify-content: center;
+
+            
+            @include tablet{
+                gap: 10px;
+                max-height: 400px;
+                padding: 20px;
+            }@include mobile{
+                padding: 10px;
+                gap: 10px;
+            }
+            
+
+            h1 {
+                color: #555;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                
+                @include tablet{
+                    gap: 10px;
+                    
+                }@include mobile{
+                    gap: 5px;
+                }
+                input {
+                    border: none;
+                    padding:20px 10px;
+                    border-bottom:1px solid #bebebe;
+                    background-color: transparent;
+
+                    @include mobile{
+                        margin-bottom: 10px;
+                        padding: 5px;
+                    }
+                }
+
+                button {
+                    width: 50%;
+                    padding: 10px;
+                    border: none;
+                    background-color: rgb(135, 84, 255);
+                    color: #ffffff;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+
+            }
+
+        }
+    }
+}
