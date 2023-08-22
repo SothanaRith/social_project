@@ -1,0 +1,133 @@
+@import "../../style.scss";
+.login {
+    height: 100vh;
+    background-color: #f333c325;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .card {
+        width: 70%;
+        display: flex;
+        border-radius: 10px;
+        min-height: 600px;
+        overflow: hidden;
+        
+        @include tablet{
+            width: 80%;
+            flex-direction: column;
+        }@include mobile{
+            width: 80%;
+            min-height: 100px;
+            
+            flex-direction: column;
+        }
+        
+
+        .left {
+            text-align: left;
+            flex: 1;
+            background:linear-gradient(rgba(45, 98, 197, 0.349),rgba(0, 0, 0, 0.692)), url("https://i.pinimg.com/564x/17/51/d3/1751d399891498fd9a86a868d0211bf2.jpg") center;
+            background-size: cover;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            color: white;
+            margin-top: -6%;
+            
+            @include tablet{
+                max-height: 900px;
+                padding: 30px;
+                gap: 10px;
+
+            }@include mobile{
+                max-height: 300px;
+                padding: 20px;
+                gap: 10px;
+            }
+
+            h1 {
+                font-size: 100px;
+                line-height: 100px;
+                
+                @include tablet{
+                    line-height: 45px;
+                    font-size: 80px;
+                }@include mobile{
+                    font-size: 40px;
+                    line-height: 40px;
+                }
+            }
+
+            p {}
+
+            span {
+                font-size: 14px;
+            }
+
+            button {
+                width: 50%;
+                padding: 10px;
+                border: none;
+                background-color: white;
+                color: rgba(124, 25, 133, 0.822);
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+        }
+
+        .right {
+            background-color:white;
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            justify-content: center;
+
+            
+            @include tablet{
+                padding: 20px;
+                gap: 10px;
+            }
+            @include mobile{
+                padding: 20px;
+                gap: 20px;
+            }
+
+            h1 {
+                color: #555;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+
+                @include mobile{
+                    gap: 10px;
+                }
+                input {
+                    border: none;
+                    padding:20px 10px;
+                    border-bottom:1px solid #bebebe;
+                    background-color: transparent;
+                }
+
+                button {
+                    width: 50%;
+                    padding: 10px;
+                    border: none;
+                    background-color: rgb(135, 84, 255);
+                    color: #ffffff;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+
+            }
+
+        }
+    }
+}
