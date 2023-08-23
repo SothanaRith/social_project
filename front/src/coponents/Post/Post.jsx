@@ -7,10 +7,12 @@ import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import { Link } from "react-router-dom";
 import Comments from "../comments/Comments";
 import { useState } from "react";
+import moment from "moment";
+
 const Post = ({ post }) => {
 
     const [commentOpen, setCommentOpen] = useState(false)
-    const liked = false;
+    const liked = true;
     return (
         <div className="post">
             <div className="container">
@@ -21,7 +23,7 @@ const Post = ({ post }) => {
                             <Link to={`/profile/${post.userId}`} style={{ textDecoration: "none", color: "inherit" }}>
                                 <span className="name">{post.name}</span>
                             </Link>
-                            <span className="date">1 min ago</span>
+                            <span className="date">{moment(post.createdAt).fromNow()}</span>
 
                         </div>
                     </div>
@@ -30,12 +32,12 @@ const Post = ({ post }) => {
 
                 <div className="content">
                     <p>{post.desc}</p>
-                    <img src={post.img} alt="" />
+                    <img src={"./upload/" + post.img} alt="" />
 
                 </div>
                 <div className="info">
                     <div className="item">
-                        {liked ? <FavoriteOutlinedIcon /> : <FavoriteBorderOutlinedIcon />}
+                        {liked ? <FavoriteOutlinedIcon style={{color: "red"}} /> : <FavoriteBorderOutlinedIcon />}
                         12.34K Likes
                     </div>
                     <div className="item" onClick={()=>setCommentOpen(!commentOpen)}>
@@ -47,7 +49,7 @@ const Post = ({ post }) => {
                         754 shares
                     </div>
                 </div>
-                {commentOpen && <Comments/>}
+                {commentOpen && <Comments postId={post.id}/>}
             </div>
 
         </div>

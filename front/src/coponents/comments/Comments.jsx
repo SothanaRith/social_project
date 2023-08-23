@@ -1,57 +1,66 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import "./comments.scss"
 import { AuthContext } from "../../context/authcontext"
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { makeRequest } from "../../axios"
 
-const Comments = ()=>{
-    const {currentUser} = useContext(AuthContext)
-    const comments =[
-        {
-            id:1,
-            name: "penhey",
-            userId: 1,
-            profilePic:"https://i.pinimg.com/736x/c6/1a/c2/c61ac20f152403df1157c2cb7a6f8275.jpg",
-            desc: " hahahahha you lose ",
-            img: "https://i.pinimg.com/564x/dd/8f/50/dd8f505678135e2b24a717fe5c8b3af2.jpg"
-        },{
-            id:2,
-            name: "penhey",
-            userId: 2,
-            profilePic:"https://i.pinimg.com/736x/c6/1a/c2/c61ac20f152403df1157c2cb7a6f8275.jpg",
-            desc: " hahahahha you lose ",
-            img: "https://i.pinimg.com/564x/dd/8f/50/dd8f505678135e2b24a717fe5c8b3af2.jpg"
-        },{
-            id:3,
-            name: "penhey",
-            userId: 3,
-            profilePic:"https://i.pinimg.com/736x/c6/1a/c2/c61ac20f152403df1157c2cb7a6f8275.jpg",
-            desc: " hahahahha you lose ",
-            img: "https://i.pinimg.com/564x/dd/8f/50/dd8f505678135e2b24a717fe5c8b3af2.jpg"
-        },{
-            id:4,
-            name: "penhey",
-            userId: 4,
-            profilePic:"https://i.pinimg.com/736x/c6/1a/c2/c61ac20f152403df1157c2cb7a6f8275.jpg",
-            desc: " hahahahha you lose ",
-            img: "https://i.pinimg.com/564x/dd/8f/50/dd8f505678135e2b24a717fe5c8b3af2.jpg"
-        },]
+
+import moment from "moment";
+
+const Comments = ({ postId }) => {
+    const [desc, setDesc] = useState("")
+    const { currentUser } = useContext(AuthContext)
+
+    const { isLoading, error, data } = useQuery({
+        queryKey: ["comments"],
+        queryFn: () =>
+            makeRequest.get("/comments?postId=" + postId).then((res) => {
+                return res.data;
+            })
+
+    })
+
+    const queryClient = useQueryClient()
+
+    const mutation = useMutation(
+        (newComment) => {
+            return makeRequest.post("/comments", newComment);
+
+        }, {
+        onSuccess: () => {
+            queryClient.invalidateQueries(["comments"]);
+        },
+    })
+
+    const handleClick = async (e) => {
+        e.preventDefault();
+        mutation.mutate({ desc, postId });
+        setDesc("")
+
+    }
+
 
     return (
         <div className="comments">
             <div className="write">
                 <img src={currentUser.profilePic} alt="" />
-                <input type="text" placeholder="write a comment" />
-                <button>send</button>
+                <input type="text" placeholder="write a comment"
+                    value={desc}
+                    onChange={e => setDesc(e.target.value)} />
+                <button onClick={handleClick}>send</button>
             </div>
-           {comments.map(comment=>(
-            <div className="comment">
-                <img src={comment.img} alt="" />
-                <div className="info">
-                    <span>{comment.name}</span>
-                    <p>{comment.desc}</p>
-                </div>
-                <span className="date">1 hour ago</span>
-            </div>
-           ))}
+            {isLoading
+                ? "Loading"
+                : data.map(comment => (
+                    <div className="comment">
+                        <img src={comment.profilePic} alt="" />
+                        <div className="info">
+                            <span>{comment.name}</span>
+                            <p>{comment.desc}</p>
+                        </div>
+                        <span className="date">{moment(comment.createdAt).fromNow()}</span>
+                    </div>
+                ))}
 
         </div>
     )
