@@ -7,9 +7,18 @@
         background-color: themed("bg");
         color: themed("textColor");
         margin-bottom: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        @include mobile {
+
+            margin: 10px;
+
+        }
 
         .container {
             padding: 20px;
+
 
             .top {
                 display: flex;
@@ -20,6 +29,7 @@
                     display: flex;
                     align-items: center;
                     flex: 3;
+
                     img {
                         width: 40px;
                         height: 40px;
@@ -36,11 +46,13 @@
                         color: themed("textColor");
                     }
                 }
-                .right{
+
+                .right {
                     flex: 1;
                     display: flex;
                     justify-content: flex-end;
-                    .file{
+
+                    .file {
                         width: 200px;
                         height: 250px;
                         object-fit: cover;
@@ -57,10 +69,20 @@
                 height: 0.5px;
                 background-color: themed("border");
             }
-            .bottom{
+
+            .bottom {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                .right{
+                    button{
+                        border: none;
+                        color: white;
+                        padding: 5px;
+                        border-radius: 2px;
+                        background-color: rgb(84, 38, 250);
+                    }
+                }
 
             }
         }

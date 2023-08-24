@@ -19,18 +19,6 @@ const Stories = ()=>{
             id:3,
             name: "penhey",
             img: "https://i.pinimg.com/564x/dd/8f/50/dd8f505678135e2b24a717fe5c8b3af2.jpg"
-        },{
-            id:4,
-            name: "penhey",
-            img: "https://i.pinimg.com/564x/dd/8f/50/dd8f505678135e2b24a717fe5c8b3af2.jpg"
-        },{
-            id:5,
-            name: "penhey",
-            img: "https://i.pinimg.com/564x/dd/8f/50/dd8f505678135e2b24a717fe5c8b3af2.jpg"
-        },{
-            id:6,
-            name: "penhey",
-            img: "https://i.pinimg.com/564x/dd/8f/50/dd8f505678135e2b24a717fe5c8b3af2.jpg"
         },
     ];
     return (
