@@ -11,10 +11,15 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { DarkModeContext } from "../../context/darkModecontext";
 import { AuthContext } from "../../context/authcontext";
+
+
 const Navbar = () => {
+    
+
+
 
     const { toggle, darkMode } = useContext(DarkModeContext);
-    const {currentUser} = useContext(AuthContext);
+    const { currentUser } = useContext(AuthContext);
     return (
         <div className="navbar">
             <div className="left">
@@ -22,15 +27,20 @@ const Navbar = () => {
                 <HomeOutlinedIcon />
                 {darkMode ? (
                     <LightModeIcon onClick={toggle} />
-                    
+
                 ) : (
                     <DarkModeOutlinedIcon onClick={toggle} />
                 )}
                 <WidgetsOutlinedIcon />
-                <div className="search">
+
+                
+                <Link to="/search" style={{ textDecoration: "none" }}><div className="search" >
                     <SearchOutlinedIcon />
-                    <input type="text" placeholder="Search" />
-                </div>
+                    
+                </div></Link>
+                
+                
+                
 
             </div>
             <div className="right">
@@ -43,6 +53,8 @@ const Navbar = () => {
                 </div>
 
             </div>
+            
+
 
         </div>
     )

@@ -30,7 +30,6 @@ const Update = ({ setOpenUpdate, user }) => {
         setTexts((prev) => ({ ...prev, [e.target.name]: [e.target.value] }))
 
     }
-
     const queryClient = useQueryClient()
 
     const mutation = useMutation((user) => {

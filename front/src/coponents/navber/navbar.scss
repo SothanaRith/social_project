@@ -26,10 +26,11 @@
         .left {
             display: flex;
             align-items: center;
+            padding: 10px;
             gap: 30px;
             @include mobile {
 
-                gap: 10px;
+                gap: 5px;
         
             }
 
@@ -50,31 +51,12 @@
                 gap: 10px;
                 border: 1px solid themed("border");
                 border-radius: 5px;
-
+                color: themed("textColor");
                 padding: 5px;
 
                 @include mobile {
-
                     background-color: themed("bg");
 
-                }
-
-                input {
-                    background-color: transparent;
-                    border: none;
-                    width: 500px;
-                    color: themed("textColor");
-
-
-                    @include tablet {
-                        width: 200px;
-                        display: none;
-                    }
-
-                    @include mobile {
-                        display: none;
-
-                    }
                 }
             }
         }

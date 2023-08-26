@@ -1,0 +1,40 @@
+@import "../../style.scss";
+
+.friend {
+    @include themify($themes) {
+        margin-top: -22px;
+        height: 100vh;
+        color: aliceblue;
+        background-color: themed("border");
+        padding: 20px;
+        color: themed("textColor");
+
+
+        .search {
+            background-color: themed("border");
+            color: #e4dfdf;
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            .item{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                border: 1px solid themed("border");
+                border-radius: 5px;
+                color: themed("textColor");
+                padding: 5px;            
+            }
+            input{
+                border: none;
+                padding: 10px;
+                font-size: 20px;
+                width: 50vw;
+                border-top-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+
+            
+        }
+    }
+}

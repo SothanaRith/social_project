@@ -37,7 +37,6 @@ const Profile = () => {
             makeRequest.get("/relationships?followedUserId=" + userId).then((res) => {
                 return res.data;
             })
-
     })
    
     const queryClient = useQueryClient()
@@ -57,6 +56,8 @@ const Profile = () => {
         mutation.mutate(relationshipData.includes(currentUser.id))
 
     }
+
+
 
     return (
         <div className="profile">

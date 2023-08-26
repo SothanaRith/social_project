@@ -1,0 +1,25 @@
+.friends {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    .item {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+        }
+
+        .info {
+
+
+        }
+
+    }
+}

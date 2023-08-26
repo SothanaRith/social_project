@@ -12,19 +12,24 @@ import Messages from "../../assets/message.png"
 import Tutorials from "../../assets/tutorial.png"
 import Courses from "../../assets/courses.png"
 import Fund from "../../assets/fund.png"
-const leftBar = () => {
+import { Link } from "react-router-dom"
+import { useContext } from "react"
+import { AuthContext } from "../../context/authcontext"
+const LeftBar = () => {
+    const { currentUser } = useContext(AuthContext)
+
     return (
         <div className="leftBar">
             <div className="container">
                 <div className="menu">
-                    <div className="user">
+                <Link to={`/profile/${currentUser.id}`} style={{ textDecoration: "none", color: "inherit" }}><div className="user">
                         <img src="https://i.pinimg.com/564x/7e/a3/61/7ea361d0e5ebeef1a12899d1f5f4b5e1.jpg" alt="" />
                         <span>Narith</span>
-                    </div>
-                    <div className="item">
+                    </div></Link>
+                    <Link to="/friend" style={{ textDecoration: "none", color: "inherit" }}><div className="item">
                         <img src={Friends} alt="" />
                         <span>Friends</span>
-                    </div>
+                    </div></Link>
                     <div className="item">
                         <img src={Group} alt="" />
                         <span>Groups</span>
@@ -94,4 +99,4 @@ const leftBar = () => {
         </div>
     )
 }
-export default leftBar;
+export default LeftBar;

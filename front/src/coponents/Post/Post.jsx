@@ -82,7 +82,7 @@ const Post = ({ post }) => {
 
                 <div className="content">
                     <p>{post.desc}</p>
-                    <img src={"./upload/" + post.img} alt="" />
+                    <img src={"../upload/" + post.img} alt="" />
 
                 </div>
                 <div className="info">
@@ -97,12 +97,12 @@ const Post = ({ post }) => {
                     </div>
                     <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
                         <TextsmsOutlinedIcon />
-                        3.24k Comments
+                        Comments
                     </div>
-                    <div className="item">
+                    {/* <div className="item">
                         <ShareOutlinedIcon />
-                        754 shares
-                    </div>
+                        shares
+                    </div> */}
                 </div>
                 {commentOpen && <Comments postId={post.id} />}
             </div>

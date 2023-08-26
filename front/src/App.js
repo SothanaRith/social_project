@@ -8,6 +8,8 @@ import RightBar from './coponents/rightBar/rightBar';
 import LeftBar from './coponents/leftBar/leftBar';
 import Home from './page/home/home';
 import Proflie from './page/profile/Profile';
+import Friend from './coponents/friend/friend';
+import Search from './coponents/search/search';
 import "./style.scss"
 import { useContext } from 'react';
 import { DarkModeContext } from './context/darkModecontext';
@@ -38,7 +40,7 @@ function App() {
 
   const ProtectedRoute = ({ children }) => {
     if (!currentUser) {
-      return <Navigate to="/login" />
+      return <Navigate to="/Login" />
     }
     return children;
   }
@@ -53,18 +55,26 @@ function App() {
         }, {
           path: "/profile/:id",
           element: <Proflie />
+        },
+        {
+          path: '/friend',
+          element: <Friend />
+        },{
+          path: '/search',
+          element: <Search />
         }
       ]
 
     },
     {
-      path: '/login',
+      path: '/Login',
       element: <Login />
     },
     {
       path: '/register',
       element: <Register />
-    }
+    },
+    
   ])
   return (
     <div className="App">
