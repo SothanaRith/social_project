@@ -14,7 +14,6 @@ const Search = () => {
             })
     })
 
-    console.log(data)
     return (
         <div className="search">
             {error ? "Something went wrong!" :(isLoading 
@@ -24,7 +23,6 @@ const Search = () => {
                    <Link to={`/profile/${item.id}`} style={{ textDecoration: "none", color: "inherit" }}><h1>{item.username}</h1></Link> 
                 </div>
             )))}
-            
 
         </div>
     )

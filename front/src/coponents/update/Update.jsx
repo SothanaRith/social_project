@@ -57,16 +57,23 @@ const Update = ({ setOpenUpdate, user }) => {
 
     return (
         <div className="update">
+            <button onClick={() => setOpenUpdate(false)}>X</button>
             update
             <form>
-                <input type="file" name="" id="" onChange={e=>setCover(e.target.files[0])}/>
-                <input type="file" name="" id="" onChange={e=>setProfile(e.target.files[0])} />
-                <input type="text" name="name" onChange={handlechange} id="" />
-                <input type="text" name="city" onChange={handlechange} id="" />
-                <input type="text" name="website" onChange={handlechange} id="" />
+                <div className="file">
+                    <input type="file" name="" id="" onChange={e => setCover(e.target.files[0])} />
+                    <input type="file" name="" id="" onChange={e => setProfile(e.target.files[0])} />
+                </div>
+                <div className="data">
+                    <input type="text" name="name" onChange={handlechange} id="" />
+                    <input type="text" name="city" onChange={handlechange} id="" />
+                    <input type="text" name="website" onChange={handlechange} id="" />
+                </div>
+
+
                 <button onClick={handleClick}>Update</button>
             </form>
-            <button onClick={() => setOpenUpdate(false)}>X</button>
+
         </div>
     )
 }

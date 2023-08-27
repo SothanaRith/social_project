@@ -14,7 +14,6 @@ const Posts = ({userId})=>{
         })
          
       })
-      console.log(userId)
 
 
 

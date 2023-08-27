@@ -12,4 +12,14 @@
     padding: 50px;
     z-index: 999;
 
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 70%;
+        gap: 30px;
+
+    }
+
 }
