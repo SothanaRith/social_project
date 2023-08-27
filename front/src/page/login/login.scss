@@ -7,18 +7,20 @@
     justify-content: center;
 
     .card {
-        width: 70%;
+        width: 60%;
         display: flex;
         border-radius: 10px;
         min-height: 600px;
+        height: 70%;
         overflow: hidden;
         
         @include tablet{
             width: 80%;
+            height: 90%;
             flex-direction: column;
         }@include mobile{
             width: 80%;
-            min-height: 100px;
+            height: 90%;
             
             flex-direction: column;
         }
@@ -34,14 +36,17 @@
             flex-direction: column;
             gap: 30px;
             color: white;
-            margin-top: -6%;
+            margin-top: -100px;
+            
             
             @include tablet{
+                margin-top: 0;
                 max-height: 900px;
                 padding: 30px;
                 gap: 10px;
 
             }@include mobile{
+                margin-top: 0;
                 max-height: 300px;
                 padding: 20px;
                 gap: 10px;
@@ -49,14 +54,14 @@
 
             h1 {
                 font-size: 100px;
-                line-height: 100px;
+                line-height: 400px;
                 
                 @include tablet{
-                    line-height: 45px;
+                    line-height: 245px;
                     font-size: 80px;
                 }@include mobile{
                     font-size: 40px;
-                    line-height: 40px;
+                    line-height: 100px;
                 }
             }
 

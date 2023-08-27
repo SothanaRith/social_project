@@ -32,7 +32,7 @@ const Post = ({ post }) => {
     const queryClient = useQueryClient()
 
     const mutation = useMutation((liked) => {
-        if (liked) return makeRequest.delete("/likes?postId="+ post.id);
+        if (liked) return makeRequest.delete("/likes?postId=" + post.id);
         return makeRequest.post("/likes", { postId: post.id });
 
     }, {
@@ -42,7 +42,8 @@ const Post = ({ post }) => {
     })
 
     const deletemutation = useMutation((postId) => {
-        return makeRequest.delete("/posts/"+ postId);
+        
+        return makeRequest.delete("/posts/" + postId);
 
     }, {
         onSuccess: () => {
@@ -51,23 +52,27 @@ const Post = ({ post }) => {
     })
 
 
+
     const handleLike = () => {
         mutation.mutate(data.includes(currentUser.id))
 
     }
-    const handleDelete =()=>{
+    const handleDelete = () => {
+        console.log(post.id)
         deletemutation.mutate(post.id)
 
     }
-    
-    
+
+
 
     return (
         <div className="post">
             <div className="container">
                 <div className="user">
                     <div className="userInfo">
-                        <img src={post.profilePic} alt="" />
+                        <Link to={`/profile/${post.userId}`} style={{ textDecoration: "none", color: "inherit" }}>
+                            <img src={"/upload/" + post.profilePic} alt="" />
+                        </Link>
                         <div className="detail">
                             <Link to={`/profile/${post.userId}`} style={{ textDecoration: "none", color: "inherit" }}>
                                 <span className="name">{post.name}</span>
@@ -76,7 +81,7 @@ const Post = ({ post }) => {
 
                         </div>
                     </div>
-                    <MoreHorizOutlinedIcon onClick={()=>setMenuOpen(!menuOpen)}/>
+                    <MoreHorizOutlinedIcon onClick={() => setMenuOpen(!menuOpen)} />
                     {menuOpen && post.userId === currentUser.id && <button onClick={handleDelete}>delete</button>}
                 </div>
 
@@ -88,11 +93,11 @@ const Post = ({ post }) => {
                 <div className="info">
                     <div className="item">
                         {isLoading
-                        ? ("Loading") 
-                        : data.includes(currentUser.id) ? (
-                            <FavoriteOutlinedIcon style={{ color: "red" }} onClick={handleLike} />
-                        ) : (<FavoriteBorderOutlinedIcon onClick={handleLike} />
-                        )}
+                            ? ("Loading")
+                            : data.includes(currentUser.id) ? (
+                                <FavoriteOutlinedIcon style={{ color: "red" }} onClick={handleLike} />
+                            ) : (<FavoriteBorderOutlinedIcon onClick={handleLike} />
+                            )}
                         {data} Likes
                     </div>
                     <div className="item" onClick={() => setCommentOpen(!commentOpen)}>

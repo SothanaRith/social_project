@@ -2,30 +2,35 @@
 
 .friend {
     @include themify($themes) {
-        margin-top: -22px;
         height: 100vh;
         color: aliceblue;
         background-color: themed("border");
-        padding: 20px;
         color: themed("textColor");
-
+        gap: 50px;
+        padding: 20px;
 
         .search {
             background-color: themed("border");
             color: #e4dfdf;
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
+            align-items: start;
+            justify-content: start;
             padding: 20px;
-            .item{
-                display: flex;
+            height: 40px;
+
+            .items {
+                width: 60px;
+                height: 20px;
                 align-items: center;
                 gap: 10px;
                 border: 1px solid themed("border");
                 border-radius: 5px;
                 color: themed("textColor");
-                padding: 5px;            
+                padding: 5px;
             }
-            input{
+
+            input {
                 border: none;
                 padding: 10px;
                 font-size: 20px;
@@ -34,7 +39,7 @@
                 border-bottom-right-radius: 10px;
             }
 
-            
+
         }
     }
 }

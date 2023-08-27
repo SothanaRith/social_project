@@ -41,3 +41,23 @@ export const addComment = (req, res) => {
     });
 
 };
+
+export const deleteComment = (req, res) => {
+
+    const token = req.cookies.accessToken;
+    if (!token) return res.status(401).json("ចុះឈ្មោះសិន បានប្រើបាន​!")
+
+    jwt.verify(token, "secretkey", (err, userInfo) => {
+        if (err) return res.status(403).json("Token is not valid!");
+
+
+        const q = "DELETE FROM comments WHERE `id`=? AND `userId`=? ";
+
+        db.query(q, [req.params.id, userInfo.id], (err, data) => {
+            if (err) return res.status(500).json(err);
+            if(data.affectedRows>0) return res.status(200).json("សារបង្ហោះត្រូវបានលុប")
+            return res.status(403).json("អ្នកអាចលុបតែសារបង្ហោះរបស់អ្នកតែប៉ុណ្ណោះ");
+        });
+    });
+
+};

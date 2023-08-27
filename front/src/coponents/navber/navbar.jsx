@@ -14,12 +14,10 @@ import { AuthContext } from "../../context/authcontext";
 
 
 const Navbar = () => {
-    
-
 
 
     const { toggle, darkMode } = useContext(DarkModeContext);
-    const { currentUser } = useContext(AuthContext);
+    const { currentUser,logout } = useContext(AuthContext);
     return (
         <div className="navbar">
             <div className="left">
@@ -34,7 +32,7 @@ const Navbar = () => {
                 <WidgetsOutlinedIcon />
 
                 
-                <Link to="/search" style={{ textDecoration: "none" }}><div className="search" >
+                <Link to="/search" style={{ textDecoration: "none" }}><div className="searchs" >
                     <SearchOutlinedIcon />
                     
                 </div></Link>
@@ -44,11 +42,11 @@ const Navbar = () => {
 
             </div>
             <div className="right">
-                <PersonOutlineOutlinedIcon />
+                {currentUser ? <PersonOutlineOutlinedIcon onClick={logout} /> : <Link to={"/login"}>Login</Link>}
                 <EmailOutlinedIcon />
                 <NotificationsNoneOutlinedIcon />
                 <div className="user">
-                    <img src={currentUser.profilePic} alt="" />
+                    <img src={"/upload/"+currentUser.profilePic} alt="" />
                     <span>{currentUser.name}</span>
                 </div>
 

@@ -42,7 +42,7 @@ const Register = () => {
                 <div className="right">
                     <h1>register</h1>
                     <form>
-                        <input type="text" placeholder="Username" name="username" onChange={handleChange} required/>
+                        <input pattern="" type="text" placeholder="Username" name="username" onChange={handleChange} required/>
                         <input type="email" name="email" id="" placeholder="Email" onChange={handleChange} required/>
                         <input type="password" name="password" id="" placeholder="Password" onChange={handleChange} />
                         <input type="text" name="name" id="" placeholder="Name" onChange={handleChange} />

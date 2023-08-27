@@ -22,9 +22,9 @@ const LeftBar = () => {
         <div className="leftBar">
             <div className="container">
                 <div className="menu">
-                <Link to={`/profile/${currentUser.id}`} style={{ textDecoration: "none", color: "inherit" }}><div className="user">
-                        <img src="https://i.pinimg.com/564x/7e/a3/61/7ea361d0e5ebeef1a12899d1f5f4b5e1.jpg" alt="" />
-                        <span>Narith</span>
+                <Link to={"/"} style={{ textDecoration: "none", color: "inherit" }}><div className="user" >
+                        <img src={"/upload/"+currentUser.profilePic} alt="" />
+                        <span>{currentUser.name}</span>
                     </div></Link>
                     <Link to="/friend" style={{ textDecoration: "none", color: "inherit" }}><div className="item">
                         <img src={Friends} alt="" />

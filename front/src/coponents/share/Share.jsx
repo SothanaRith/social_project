@@ -3,6 +3,7 @@ import "./share.scss";
 import { AuthContext } from "../../context/authcontext";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
+import { Link } from "react-router-dom";
 const Share = () => {
 
     const [file, setFile] = useState(null)
@@ -21,6 +22,7 @@ const Share = () => {
     }
 
     const { currentUser } = useContext(AuthContext)
+    console.log(currentUser)
 
     const queryClient = useQueryClient()
 
@@ -39,8 +41,8 @@ const Share = () => {
         let imgUrl = "";
         if (file) imgUrl = await upload()
         mutation.mutate({ desc, img: imgUrl });
-    setDesc("")
-    setFile(null)
+        setDesc("")
+        setFile(null)
 
 
     }
@@ -49,14 +51,16 @@ const Share = () => {
             <div className="container">
                 <div className="top">
                     <div className="left">
-                        <img src="" alt="" />
+                        <Link to={`/profile/${currentUser.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+                            <img src={"/upload/" + currentUser.profilePic} alt="" />
+                        </Link>
                         <input type="text" placeholder={`What's on Your mind ${currentUser.name}?`}
                             onChange={e => setDesc(e.target.value)}
                             value={desc} />
                     </div>
                     <div className="right">
                         {/* create a fake url to show image */}
-                        {file && <img className="file" alt="" src={URL.createObjectURL(file)}/>}
+                        {file && <img className="file" alt="" src={URL.createObjectURL(file)} />}
                     </div>
                 </div>
                 <hr />

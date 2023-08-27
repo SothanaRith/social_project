@@ -1,5 +1,4 @@
 import logo from './logo.svg';
-
 import Login from './page/login/Login';
 import Register from './page/register/Register';
 import { Navigate, RouterProvider, createBrowserRouter, Route, Outlet } from "react-router-dom"

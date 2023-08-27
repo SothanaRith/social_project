@@ -30,7 +30,7 @@
             gap: 30px;
             @include mobile {
 
-                gap: 5px;
+                gap: 20px;
         
             }
 
@@ -45,7 +45,7 @@
                 }
             }
 
-            .search {
+            .searchs {
                 display: flex;
                 align-items: center;
                 gap: 10px;
@@ -65,6 +65,7 @@
             display: flex;
             align-items: center;
             gap: 20px;
+            cursor: pointer;
 
             @include mobile {
                 display: none;

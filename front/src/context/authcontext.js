@@ -9,20 +9,24 @@ export const AuthContextProvider = ({ children }) => {
     );
 
     const login = async (inputs) => {
-        const res = await axios.post("http://localhost:8080/api/auth/login", inputs,{
+        const res = await axios.post("http://localhost:8080/api/auth/login", inputs, {
             withCredentials: true,
         });
 
         setCurrentUser(res.data)
-       
+
     };
     useEffect(() => {
         localStorage.setItem("user", JSON.stringify(currentUser));
     }, [currentUser]);
+    const logout = async (inputs) => {
+        await axios.post("http://localhost:8080/api/auth/logout");
+        setCurrentUser(null)
+    }
 
     return (
 
-        <AuthContext.Provider value={{ currentUser, login }}>
+        <AuthContext.Provider value={{ currentUser, login, logout }}>
             {children}
         </AuthContext.Provider>
     )

@@ -1,18 +1,32 @@
-import { useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import "./update.scss"
 import { makeRequest } from "../../axios"
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { AuthContext } from "../../context/authcontext";
+import axios from "axios";
 
 
 
 const Update = ({ setOpenUpdate, user }) => {
     const [cover, setCover] = useState(null)
     const [profile, setProfile] = useState(null)
+    const { currentUser } = useContext(AuthContext)
+
+
     const [texts, setTexts] = useState({
         name: "",
         city: "",
         website: "",
     })
+    useEffect(() => {
+        makeRequest.get("/users/find/" + currentUser.id).then((res) => {
+            setTexts(res.data);
+        }).catch((err) =>
+            console.log(err))
+    }, [currentUser.id])
+
+
+
 
     const upload = async (file) => {
         try {
@@ -33,7 +47,7 @@ const Update = ({ setOpenUpdate, user }) => {
     const queryClient = useQueryClient()
 
     const mutation = useMutation((user) => {
-        return makeRequest.put("/users", user);
+        return makeRequest.put("/users", user,texts);
 
     }, {
         onSuccess: () => {
@@ -58,16 +72,24 @@ const Update = ({ setOpenUpdate, user }) => {
     return (
         <div className="update">
             <button onClick={() => setOpenUpdate(false)}>X</button>
-            update
+            <h1>update Profile</h1>
             <form>
                 <div className="file">
-                    <input type="file" name="" id="" onChange={e => setCover(e.target.files[0])} />
-                    <input type="file" name="" id="" onChange={e => setProfile(e.target.files[0])} />
+                    <div className="coverPic">
+                        <h1>Cover Picture</h1>
+                        <input type="file" name="" id="" onChange={e => setCover(e.target.files[0])} required />
+                    </div>
+                    <div className="profilePic">
+                        <h1>Profile Picture</h1>
+                        <input type="file" name="" id="" onChange={e => setProfile(e.target.files[0])} required />
+                    </div>
+
+
                 </div>
                 <div className="data">
-                    <input type="text" name="name" onChange={handlechange} id="" />
-                    <input type="text" name="city" onChange={handlechange} id="" />
-                    <input type="text" name="website" onChange={handlechange} id="" />
+                    <input type="text" name="name" value={texts.name} onChange={handlechange} id="" placeholder="your Name" required="ture" />
+                    <input type="text" name="city" value={texts.city} onChange={handlechange} id="" placeholder="Your city" required />
+                    <input type="text" name="website" value={texts.website} onChange={handlechange} id="" placeholder="Your website" required />
                 </div>
 
 

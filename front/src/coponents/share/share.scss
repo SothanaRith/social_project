@@ -53,8 +53,8 @@
                     justify-content: flex-end;
 
                     .file {
-                        width: 200px;
-                        height: 250px;
+                        max-width: 300px;
+                        max-height: 250px;
                         object-fit: cover;
                         border-radius: 0px;
 
@@ -74,6 +74,11 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                .left{
+                    cursor: pointer;
+                    font-weight: 700;
+
+                }
                 .right{
                     button{
                         border: none;

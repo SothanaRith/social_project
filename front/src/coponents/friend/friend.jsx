@@ -29,10 +29,10 @@ const Friend = ({ userId }) => {
 
     return (
         <div className="friend">
-            <h1>Friends</h1>
+            <h1>Your Friends</h1>
             <div className="search">
 
-                <div className="item" onClick={() => setCommentOpen(!commentOpen)}>
+                <div className="items" onClick={() => setCommentOpen(!commentOpen)}>
                     <SearchOutlinedIcon />
 
                 </div>
