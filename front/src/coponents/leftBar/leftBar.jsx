@@ -71,8 +71,11 @@ const LeftBar = () => {
                         <span>Videos</span>
                     </div>
                     <div className="item">
+                    <Link to="/homechat" style={{ textDecoration: "none", color: "inherit" }}>
+
                         <img src={Messages} alt="" />
                         <span>Messages</span>
+                        </Link>
                     </div>
 
                 </div>

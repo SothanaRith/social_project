@@ -14,6 +14,7 @@ import { useContext } from 'react';
 import { DarkModeContext } from './context/darkModecontext';
 import { AuthContext } from './context/authcontext';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import HomeChat from './page/chat/page/HomeChat';
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -61,6 +62,9 @@ function App() {
         },{
           path: '/search',
           element: <Search />
+        },{
+          path: '/homechat',
+          element: <HomeChat />
         }
       ]
 

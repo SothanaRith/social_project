@@ -6,6 +6,7 @@ import { makeRequest } from "../../axios"
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 
 import moment from "moment";
+import Comment from "../comment/comment"
 
 const Comments = ({ postId }) => {
     const [desc, setDesc] = useState("")
@@ -60,6 +61,7 @@ const Comments = ({ postId }) => {
                             <span>{comment.name}</span>
                             <p>{comment.desc}</p>
                         </div>
+                        <Comment comment={comment} key={comment.id}/>
                         {/* <div>
                             <MoreHorizOutlinedIcon onClick={() => setMenuOpen(!menuOpen)} />
                             {menuOpen && comment.userId === currentUser.id && <button onClick={handleDelete}>delete</button>}

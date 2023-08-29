@@ -1,4 +1,7 @@
 @import "../../style.scss";
+input{
+    outline: none;
+}
 
 .share {
     @include themify($themes) {
@@ -44,6 +47,8 @@
                         background-color: transparent;
                         width: 60%;
                         color: themed("textColor");
+                        outline: none;
+
                     }
                 }
 
